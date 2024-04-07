@@ -53,6 +53,8 @@ class Csúcs:
 
     def kiterjeszt(self, feladat):
         for (művelet, következő) in feladat.rákövetkező(self.állapot):
+            print("Kiterjeszt")
+            print(művelet, következő)
             if következő not in [csúcs.állapot for csúcs in self.út()]:
                 yield Csúcs(következő, self, művelet,
                             feladat.útköltség(self.útköltség, self.állapot, művelet,

@@ -14,8 +14,6 @@ class ChessKnight(Feladat):
         return állapot == self.cél
 
     def rákövetkező(self, állapot):
-
-
         if állapot in self.denied:
             return []
         self.set_table(állapot)
@@ -33,10 +31,10 @@ class ChessKnight(Feladat):
     def set_table(self, állapot):
         x,y,visited = állapot
 
-        current_table_state = self.table
-        current_table_state[x][y] = "X"
+        current_table_state = self.table.copy()
+        current_table_state[y][x] = "X"
 
-        self.table = current_table_state
+        self.table = current_table_state.copy()
         self.table_states.append(current_table_state)
 
 
@@ -63,25 +61,8 @@ if __name__ == "__main__":
     utam.reverse()
     print(utam)
 
-    chess_knight = ChessKnight((0, 1, True), (0, 1, False));
-    chess_knight.print_table()
-    print("Szélességi gráfkeresés")
-    result = szélességi_gráfkeresés(chess_knight)
-    utam = result.út()
-    utam.reverse()
-    print(utam)
 
 
     #chess_knight.print_table_states()
 
-    with open("states.txt", "w") as file:
-        for state in chess_knight.table_states:
-            for row in state:
-                string_list = "[" + ' '.join(str(x) for x in row) + "]\n"
-                file.write(string_list)
-
-            file.write("\n\n")
-
-
-    file.close()
 

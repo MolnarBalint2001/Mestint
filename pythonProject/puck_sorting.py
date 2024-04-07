@@ -48,13 +48,6 @@ if __name__ == "__main__":
     utam.reverse()
     print(utam)
 
-    print("Szélességi gráfkeresés")
-    result2 = szélességi_gráfkeresés(puck_sorting)
-    print(result2)
-    utam2 = result2.út()
-    utam2.reverse()
-    print(utam2)
-
 
 
 
